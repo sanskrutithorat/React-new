@@ -16,17 +16,19 @@ const Header = () => {
             <HiOutlineBars3 />
           </button>
 
-          <div className={styles.logo}>CRM</div>
+          <div className={styles.logo}>Datta Ghee</div>
         </div>
 
         {/* CENTER */}
-        <div className={styles.center}>
+        {/* <div className={styles.center}>
           <input type="text" placeholder="Search..." className={styles.search} />
-        </div>
+        </div> */}
 
         {/* RIGHT */}
         <div className={styles.right}>
           <button className={styles.actionBtn}>Dashboard</button>
+          <button className={styles.actionBtn}>Products</button>
+
 
           <button className={styles.actionBtn}>Setting</button>
 

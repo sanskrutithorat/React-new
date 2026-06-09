@@ -1,40 +1,42 @@
-import { createBrowserRouter , Navigate } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import Dashboard from "../features/dashboard/Dashboard";
 import BlankLayout from "@/layouts/BlankLayout";
 import { ProtectedRoute } from "@/layouts/ProtectedRoute";
 import FullLayout from "@/layouts/FullLayout";
 import RoleRoute from "@/layouts/RoleRoute";
-import Login from "@/features/login/Login";
+import Login from "@/features/auth/Login";
 import Setting from "@/features/setting/Setting";
+import Products from "@/features/products/Products";
 
 
 export const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Navigate to="/dashboard" replace />,
-  },
+    {
+        path: "/",
+        element: <Navigate to="/dashboard" replace />,
+    },
 
-  {
-    path: "/auth",
-    element: <BlankLayout />,
-    children: [{ path: "login", element: <Login /> }],
-  },
+    {
+        path: "/auth",
+        element: <BlankLayout />,
+        children: [{ path: "login", element: <Login /> }],
+    },
 
-  {
-    element: <ProtectedRoute />,
-    children: [
-      {
-        element: <FullLayout />,
+    {
+        element: <ProtectedRoute />,
         children: [
-          {
-            element: <RoleRoute roles={["receptionist", "admin"]} />,
-            children: [
-              { path: "dashboard", element: <Dashboard /> },
-              { path: "setting", element: <Setting /> },
-            ],
-          },
+            {
+                element: <FullLayout />,
+                children: [
+                    {
+                        element: <RoleRoute roles={["receptionist", "admin"]} />,
+                        children: [
+                            { path: "dashboard", element: <Dashboard /> },
+                            { path: "products", element: <Products /> },
+                            { path: "setting", element: <Setting /> },
+                        ],
+                    },
+                ],
+            },
         ],
-      },
-    ],
-  },
+    },
 ]);

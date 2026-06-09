@@ -1,13 +1,35 @@
 import { useAuthStore } from "@/store/authStore";
-import { Navigate, Outlet } from "react-router-dom";
 
-type Props = { roles: string[] };
+import {
+  Navigate,
+  Outlet,
+} from "react-router-dom";
 
-export const RoleRoute = ({ roles }: Props) => {
-  const role = useAuthStore((s) => s.role);
+type Props = {
+  roles: string[];
+};
 
-  if (!role || !roles.includes(role)) {
-    return <Navigate to="/403" replace />;
+export const RoleRoute = ({
+  roles,
+}: Props) => {
+
+  const user =
+    useAuthStore(
+      (s) => s.user
+    );
+
+  const role = user?.role;
+
+  if (
+    !role ||
+    !roles.includes(role)
+  ) {
+    return (
+      <Navigate
+        to="/403"
+        replace
+      />
+    );
   }
 
   return <Outlet />;

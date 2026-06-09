@@ -23,6 +23,7 @@ const Sidebar = () => {
 
         <nav className={styles.nav}>
           <button>Dashboard</button>
+          <button>Products</button>
           <button>Settings</button>
         </nav>
       </aside>

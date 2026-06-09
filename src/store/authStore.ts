@@ -1,27 +1,68 @@
+
 // import { create } from "zustand";
 
 // interface AuthState {
 //   token: string | null;
 //   role: string | null;
-
-//   setToken: (token: string) => void;
 // }
 
-// export const useAuthStore = create<AuthState>((set) => ({
-//   token: null,
-//   role: null,
-
-//   setToken: (token) => set({ token }),
+// export const useAuthStore = create<AuthState>(() => ({
+//   token: "dev-token",
+//   role: "admin",
 // }));
-
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
-interface AuthState {
-  token: string | null;
-  role: string | null;
+interface User {
+  id: string;
+  email: string;
+  role: string;
 }
 
-export const useAuthStore = create<AuthState>(() => ({
-  token: "dev-token",
-  role: "admin",
-}));
+interface AuthState {
+  accessToken: string | null;
+  refreshToken: string | null;
+
+  user: User | null;
+
+  setAuth: (data: {
+    accessToken: string;
+    refreshToken: string;
+    user: User;
+  }) => void;
+
+  logout: () => void;
+}
+
+export const useAuthStore =
+  create<AuthState>()(
+    persist(
+      (set) => ({
+        accessToken: null,
+        refreshToken: null,
+
+        user: null,
+
+        setAuth: ({
+          accessToken,
+          refreshToken,
+          user,
+        }) =>
+          set({
+            accessToken,
+            refreshToken,
+            user,
+          }),
+
+        logout: () =>
+          set({
+            accessToken: null,
+            refreshToken: null,
+            user: null,
+          }),
+      }),
+      {
+        name: "auth-storage",
+      }
+    )
+  );

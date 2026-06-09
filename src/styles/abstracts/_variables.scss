@@ -1,0 +1,46 @@
+$primary: #00a6fb;
+$primary-gradient: linear-gradient(135deg, #00a6fb 0%, #2563eb 100%);
+$secondary: #122a5e;
+$success: #20bf55;
+$warning: #ff9100;
+$danger: #db222a;
+$white: #ffffff;
+$black: #000000;
+$body-color: #383940;
+$muted-color: #717182;
+$light-bg: #eef2ff;
+$border-color: #d9d9d9;
+$board-bg: #f6e7b3;
+
+//font families
+$font-family: "Rubik", sans-serif;
+$font-family-base: $font-family;
+$font-family-sans-serif: $font-family;
+
+//buttons
+$btn-border-radius: 10px;
+$btn-border-radius-lg: 12px;
+
+//cards
+$card-border-radius: 16px;
+$card-bg: $white;
+$card-border-color: transparent;
+
+//modals
+$modal-content-border-radius: 24px;
+$modal-content-border-color: transparent;
+
+//inputs
+$input-border-radius: 10px;
+$input-placeholder-color: $muted-color;
+
+$input-group-addon-bg: transparent;
+$input-group-addon-color: $muted-color;
+
+$input-focus-border-color: $border-color;
+$input-focus-box-shadow: $border-color;
+
+//accordion
+$accordion-button-bg: none;
+
+$accordion-button-focus-box-shadow: none;

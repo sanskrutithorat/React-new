@@ -1,0 +1,27 @@
+.section {
+    padding: 5rem 0;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  
+  .card {
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid #ececec;
+    border-radius: 16px;
+  }
+  
+  .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  @media (max-width: 767px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }

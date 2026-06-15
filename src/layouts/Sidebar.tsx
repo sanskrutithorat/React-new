@@ -1,6 +1,7 @@
 import { useUIStore } from "@/store/uiStore";
 
 import styles from "./Sidebar.module.scss";
+import Logout from "@/features/auth/Logout";
 
 const Sidebar = () => {
   const isSidebarOpen = useUIStore((s) => s.isSidebarOpen);
@@ -25,6 +26,8 @@ const Sidebar = () => {
           <button>Dashboard</button>
           <button>Products</button>
           <button>Settings</button>
+
+          <Logout />
         </nav>
       </aside>
     </>

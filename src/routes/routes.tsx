@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
                 element: <FullLayout />,
                 children: [
                     {
-                        element: <RoleRoute roles={["receptionist", "admin"]} />,
+                        element: <RoleRoute roles={[]} />,
                         children: [
                             { path: "dashboard", element: <Dashboard /> },
                             { path: "products", element: <Products /> },

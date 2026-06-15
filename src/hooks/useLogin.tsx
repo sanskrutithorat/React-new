@@ -1,35 +1,27 @@
 import { useMutation } from "@tanstack/react-query";
 
-import {
-  loginApi,
-  type LoginPayload,
-  type LoginResponse,
-} from "@/apis/auth";
-
+import { loginApi } from "@/apis/auth";
 import { useAuthStore } from "@/store/authStore";
 
 export const useLogin = () => {
   const setAuth = useAuthStore(
-    (state) => state.setAuth
+    (s) => s.setAuth
   );
 
-  return useMutation<
-    LoginResponse,
-    Error,
-    LoginPayload
-  >({
+  return useMutation({
     mutationFn: loginApi,
 
     onSuccess: (data) => {
-      setAuth({
-        accessToken:
-          data.accessToken,
-
-        refreshToken:
-          data.refreshToken,
-
-        user: data.user,
-      });
+      setAuth(
+        data.accessToken,
+        data.refreshToken,
+        {
+          id: data.id,
+          username: data.username,
+          email: data.email,
+          role: data.role,
+        }
+      );
     },
   });
 };

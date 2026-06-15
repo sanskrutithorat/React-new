@@ -1,61 +1,53 @@
-// import { publicApi } from "./publicApi";
+import { publicApi } from "./publicApi";
 
 export interface LoginPayload {
-    email: string;
-    password: string;
-  }
-  
-  export interface LoginResponse {
-    accessToken: string;
-    refreshToken: string;
-  
-    user: {
-      id: string;
-      email: string;
-      role: string;
-    };
-  }
+  username: string;
+  password: string;
+}
 
-// export const loginApi = async (
-//   payload: LoginPayload
-// ): Promise<LoginResponse> => {
-//   const response = await publicApi.post(
-//     "/auth/login",
-//     payload
-//   );
+export interface LoginResponse {
+  accessToken: string;
+  refreshToken: string;
 
-//   return response.data;
-// };
-
+  id: number;
+  username: string;
+  email: string;
+  role: string;
+}
 
 export const loginApi = async (
-    payload: LoginPayload
-  ): Promise<LoginResponse> => {
-  
-    await new Promise((resolve) =>
-      setTimeout(resolve, 1000)
-    );
-  
-    if (
-      payload.email === "admin@gmail.com" &&
-      payload.password === "Pass@123"
-    ) {
-      return {
-        accessToken:
-          "fake-access-token",
-  
-        refreshToken:
-          "fake-refresh-token",
-  
-        user: {
-          id: "1",
-          email: "admin@gmail.com",
-          role: "admin",
-        },
-      };
+  payload: LoginPayload
+): Promise<LoginResponse> => {
+  const response = await publicApi.post(
+    "/auth/login",
+    {
+      username: payload.username,
+      password: payload.password,
+      expiresInMins: 30,
     }
-  
-    throw new Error(
-      "Invalid email or password"
-    );
-  };
+  );
+
+  return response.data;
+};
+
+export const getCurrentUser = async () => {
+  const response = await publicApi.get(
+    "/auth/me"
+  );
+
+  return response.data;
+};
+
+export const refreshTokenApi = async (
+  refreshToken: string
+) => {
+  const response = await publicApi.post(
+    "/auth/refresh",
+    {
+      refreshToken,
+      expiresInMins: 30,
+    }
+  );
+
+  return response.data;
+};

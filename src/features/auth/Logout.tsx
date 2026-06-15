@@ -1,11 +1,25 @@
-const Logout = () => {
+import { useLogout } from "@/hooks/useLogout";
 
+type LogoutProps = {
+  children?: React.ReactNode;
+  className?: string;
+};
 
-    return (
-        <>
-            <h1>Logout</h1>
-        </>
-    );
+const Logout = ({
+  children = "Logout",
+  className,
+}: LogoutProps) => {
+  const logout = useLogout();
+
+  return (
+    <button
+      type="button"
+      className={className}
+      onClick={logout}
+    >
+      {children}
+    </button>
+  );
 };
 
 export default Logout;

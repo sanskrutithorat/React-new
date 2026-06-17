@@ -1,88 +1,107 @@
 @use "@/styles/abstracts/variables" as *;
 
 .overlay {
-  position: fixed;
-  inset: 0;
+position: fixed;
+inset: 0;
+background: rgba(0, 0, 0, 0.4);
+z-index: 1200;
 
-  background: rgba(0, 0, 0, 0.4);
+opacity: 0;
+pointer-events: none;
 
-  z-index: 1200;
-
-  opacity: 0;
-
-  pointer-events: none;
-
-  transition: 0.3s ease;
+transition: 0.3s ease;
 }
 
 .showOverlay {
-  opacity: 1;
-
-  pointer-events: all;
+opacity: 1;
+pointer-events: all;
 }
 
 .sidebar {
-  position: fixed;
+position: fixed;
+top: 0;
+left: 0;
 
-  top: 0;
-  left: 0;
+width: 280px;
+max-width: 85vw;
+height: 100vh;
 
-  width: 280px;
-  max-width: 85vw;
+background: $white;
 
-  height: 100vh;
+z-index: 1300;
 
-  background: $white;
+border-right: 1px solid $border-color;
 
-  z-index: 1300;
+transform: translateX(-100%);
+transition: transform 0.3s ease;
 
-  border-right: 1px solid $border-color;
-
-  transform: translateX(-100%);
-
-  transition: transform 0.3s ease;
-
-  padding: 24px;
+padding: 24px;
 }
 
 .showSidebar {
-  transform: translateX(0);
+transform: translateX(0);
 }
 
 .top {
-  margin-bottom: 32px;
+margin-bottom: 32px;
 
-  h2 {
-    font-size: 20px;
-    color: $secondary;
-  }
+h2 {
+font-size: 20px;
+color: $secondary;
+}
 }
 
 .nav {
-  display: flex;
-  flex-direction: column;
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
 
-  gap: 12px;
+.link {
+text-decoration: none;
+color: $body-color;
 
-  button {
-    border: none;
+padding: 14px 16px;
+border-radius: 12px;
 
-    background: transparent;
+transition: 0.2s ease;
 
-    text-align: left;
+&:hover {
+background: $light-bg;
+color: $primary;
+}
+}
 
-    padding: 14px 16px;
+.active {
+background: $light-bg;
+color: $primary;
+font-weight: 600;
+}
 
-    border-radius: 12px;
 
-    cursor: pointer;
+.logoutSection {
+  margin-top: auto;
+  padding-top: 24px;
+}
 
-    transition: 0.2s ease;
+.logoutBtn {
+  width: 100%;
 
-    &:hover {
-      background: $light-bg;
+  border: none;
+  border-radius: 12px;
 
-      color: $primary;
-    }
+  padding: 14px 16px;
+
+  background: rgba($danger, 0.08);
+  color: $danger;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba($danger, 0.15);
   }
 }

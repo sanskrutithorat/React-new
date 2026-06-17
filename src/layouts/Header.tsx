@@ -3,8 +3,10 @@ import { HiOutlineBars3 } from "react-icons/hi2";
 import { useUIStore } from "@/store/uiStore";
 
 import styles from "./Header.module.scss";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   const toggleSidebar = useUIStore((s) => s.toggleSidebar);
 
   return (
@@ -26,11 +28,11 @@ const Header = () => {
 
         {/* RIGHT */}
         <div className={styles.right}>
-          <button className={styles.actionBtn}>Dashboard</button>
-          <button className={styles.actionBtn}>Products</button>
+          <button className={styles.actionBtn} onClick={() => navigate("/dashboard")}>Dashboard</button>
+          <button className={styles.actionBtn} onClick={() => navigate("/products")}>Products</button>
 
 
-          <button className={styles.actionBtn}>Setting</button>
+          <button className={styles.actionBtn} onClick={() => navigate("/setting")}>Setting</button>
 
           <div className={styles.avatar}>A</div>
         </div>

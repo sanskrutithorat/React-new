@@ -1,37 +1,81 @@
-import { useUIStore } from "@/store/uiStore";
+import { NavLink } from "react-router-dom";
 
-import styles from "./Sidebar.module.scss";
+import { useUIStore } from "@/store/uiStore";
 import Logout from "@/features/auth/Logout";
 
+import styles from "./Sidebar.module.scss";
+
 const Sidebar = () => {
-  const isSidebarOpen = useUIStore((s) => s.isSidebarOpen);
+const isSidebarOpen = useUIStore((s) => s.isSidebarOpen);
+const closeSidebar = useUIStore((s) => s.closeSidebar);
 
-  const closeSidebar = useUIStore((s) => s.closeSidebar);
+return (
+<>
+{/* OVERLAY */}
+<div
+className={`${styles.overlay} ${
+          isSidebarOpen ? styles.showOverlay : ""
+        }`}
+onClick={closeSidebar}
+/>
 
-  return (
-    <>
-      {/* OVERLAY */}
-      <div
-        className={`${styles.overlay} ${isSidebarOpen ? styles.showOverlay : ""}`}
+```
+  {/* SIDEBAR */}
+  <aside
+    className={`${styles.sidebar} ${
+      isSidebarOpen ? styles.showSidebar : ""
+    }`}
+  >
+    <div className={styles.top}>
+      <h2>Menu</h2>
+    </div>
+
+    <nav className={styles.nav}>
+      <NavLink
+        to="/dashboard"
         onClick={closeSidebar}
-      />
+        className={({ isActive }) =>
+          isActive
+            ? `${styles.link} ${styles.active}`
+            : styles.link
+        }
+      >
+        Dashboard
+      </NavLink>
 
-      {/* SIDEBAR */}
-      <aside className={`${styles.sidebar} ${isSidebarOpen ? styles.showSidebar : ""}`}>
-        <div className={styles.top}>
-          <h2>Menu</h2>
-        </div>
+      <NavLink
+        to="/products"
+        onClick={closeSidebar}
+        className={({ isActive }) =>
+          isActive
+            ? `${styles.link} ${styles.active}`
+            : styles.link
+        }
+      >
+        Products
+      </NavLink>
 
-        <nav className={styles.nav}>
-          <button>Dashboard</button>
-          <button>Products</button>
-          <button>Settings</button>
+      <NavLink
+        to="/setting"
+        onClick={closeSidebar}
+        className={({ isActive }) =>
+          isActive
+            ? `${styles.link} ${styles.active}`
+            : styles.link
+        }
+      >
+        Settings
+      </NavLink>
 
-          <Logout />
-        </nav>
-      </aside>
-    </>
-  );
+      <div className={styles.logoutSection}>
+    <Logout className={styles.logoutBtn} />
+  </div>
+    </nav>
+  </aside>
+</>
+
+
+);
 };
 
 export default Sidebar;

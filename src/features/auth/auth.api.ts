@@ -1,5 +1,5 @@
-import { API_ENDPOINTS } from "./apiEndpoints";
-import { publicApi } from "./publicApi";
+import { API_ENDPOINTS } from "../../apis/apiEndpoints";
+import { publicApi } from "../../apis/publicApi";
 
 
 export interface LoginPayload {

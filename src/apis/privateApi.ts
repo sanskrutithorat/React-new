@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { useAuthStore } from "@/store/authStore";
 
-import { refreshTokenApi } from "./auth";
+import { refreshTokenApi } from "../features/auth/auth.api";
 
 export const privateApi = axios.create({
   baseURL: import.meta.env.VITE_API_URL,

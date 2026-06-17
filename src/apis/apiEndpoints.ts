@@ -4,4 +4,7 @@ export const API_ENDPOINTS = {
       ME: "/auth/me",
       REFRESH: "/auth/refresh",
     },
+    PRODUCTS:{
+        GET_PRODUCTS:'/products'
+    }
   } as const;

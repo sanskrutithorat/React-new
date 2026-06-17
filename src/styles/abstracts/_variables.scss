@@ -1,46 +1,55 @@
-$primary: #00a6fb;
-$primary-gradient: linear-gradient(135deg, #00a6fb 0%, #2563eb 100%);
-$secondary: #122a5e;
-$success: #20bf55;
-$warning: #ff9100;
-$danger: #db222a;
-$white: #ffffff;
-$black: #000000;
-$body-color: #383940;
-$muted-color: #717182;
-$light-bg: #eef2ff;
-$border-color: #d9d9d9;
-$board-bg: #f6e7b3;
+$primary: #7c6ee6;
+$secondary: #4b436a;
 
-//font families
+$success: #34c759;
+$warning: #f59e0b;
+$danger: #ef4444;
+
+$white: #ffffff;
+$black: #111827;
+
+$body-color: #2f3142;
+$muted-color: #7b7d92;
+
+$light-bg: #f7f5ff;
+$border-color: #ece8ff;
+
+$primary-gradient: linear-gradient(
+  135deg,
+  #8d84cf 0%,
+  #e98ade 100%
+);
+
+// Typography
 $font-family: "Rubik", sans-serif;
 $font-family-base: $font-family;
 $font-family-sans-serif: $font-family;
 
-//buttons
-$btn-border-radius: 10px;
-$btn-border-radius-lg: 12px;
+// Buttons
+$btn-border-radius: 12px;
+$btn-border-radius-lg: 14px;
 
-//cards
-$card-border-radius: 16px;
-$card-bg: $white;
-$card-border-color: transparent;
+// Cards
+$card-border-radius: 18px;
+$card-bg: #ffffff;
+$card-border-color: #ece8ff;
 
-//modals
-$modal-content-border-radius: 24px;
-$modal-content-border-color: transparent;
-
-//inputs
-$input-border-radius: 10px;
+// Inputs
+$input-border-radius: 12px;
 $input-placeholder-color: $muted-color;
+$input-focus-border-color: #8d84cf;
+$input-focus-box-shadow: 0 0 0 0.2rem rgba(141, 132, 207, 0.15);
 
-$input-group-addon-bg: transparent;
-$input-group-addon-color: $muted-color;
 
-$input-focus-border-color: $border-color;
-$input-focus-box-shadow: $border-color;
+$input-border-radius: 12px;
+$input-border-color: #ece8ff;
+$input-focus-border-color: #8d84cf;
+$input-focus-box-shadow: 0 0 0 0.2rem rgba(141, 132, 207, 0.15);
 
-//accordion
-$accordion-button-bg: none;
+$tag-bg: #f2f0ff;
+$tag-text: #6b5bd2;
 
-$accordion-button-focus-box-shadow: none;
+
+$btn-primary-bg: #6b5bd2;
+$btn-primary-hover: #5c4bc4;
+

@@ -45,3 +45,14 @@ export const useLogin = () => {
     },
   });
 };
+
+
+import { useQuery } from "@tanstack/react-query";
+import { getCurrentUser } from "@/features/auth/auth.api";
+
+export const useMe = () => {
+  return useQuery({
+    queryKey: ["me"],
+    queryFn: getCurrentUser,
+  });
+};

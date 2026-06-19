@@ -1,8 +1,8 @@
 import { useAuthStore } from "@/store/authStore";
-
 import { useMutation } from "@tanstack/react-query";
-
 import { loginApi } from "@/features/auth/auth.api";
+import { useQuery } from "@tanstack/react-query";
+import { getCurrentUser } from "@/features/auth/auth.api";
 
 export const useLogout = () => {
   const logout =
@@ -47,8 +47,7 @@ export const useLogin = () => {
 };
 
 
-import { useQuery } from "@tanstack/react-query";
-import { getCurrentUser } from "@/features/auth/auth.api";
+
 
 export const useMe = () => {
   return useQuery({

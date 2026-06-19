@@ -1,5 +1,3 @@
-// src/hooks/useProducts.ts
-
 import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import { getProducts } from "@/features/products/products.api";
 

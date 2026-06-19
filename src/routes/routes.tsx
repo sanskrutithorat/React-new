@@ -7,6 +7,7 @@ import RoleRoute from "@/layouts/RoleRoute";
 import Login from "@/features/auth/Login";
 import Setting from "@/features/setting/Setting";
 import Products from "@/features/products/Products";
+import Profile from "@/features/profile/Profile";
 
 
 export const router = createBrowserRouter([
@@ -33,6 +34,7 @@ export const router = createBrowserRouter([
                             { path: "dashboard", element: <Dashboard /> },
                             { path: "products", element: <Products /> },
                             { path: "setting", element: <Setting /> },
+                            { path:"profile" , element :<Profile/>}
                         ],
                     },
                 ],

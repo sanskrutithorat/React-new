@@ -53,6 +53,17 @@ const Sidebar = () => {
           </NavLink>
 
           <NavLink
+            to="/profile"
+            onClick={closeSidebar}
+            className={({ isActive }) =>
+              isActive
+                ? `${styles.link} ${styles.active}`
+                : styles.link
+            }
+          >
+            Profile
+          </NavLink>
+          <NavLink
             to="/setting"
             onClick={closeSidebar}
             className={({ isActive }) =>

@@ -34,7 +34,7 @@ const Header = () => {
 
           <button className={styles.actionBtn} onClick={() => navigate("/setting")}>Setting</button>
 
-          <div className={styles.avatar}>A</div>
+          <div className={styles.avatar} onClick={() => navigate("/profile")} >A</div>
         </div>
       </div>
     </header>
